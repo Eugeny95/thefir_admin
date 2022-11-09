@@ -33,6 +33,8 @@ class _BonusesDialogState extends State<BonusesDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0))),
       title: new Text('Завершение заказа'),
       content: Text('Списать/начислить бонусы'),
       actions: <Widget>[
@@ -100,6 +102,8 @@ class _BonusesDialogState extends State<BonusesDialog> {
             await showDialog(
               context: context,
               builder: (context) => new AlertDialog(
+                shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0))),
                 title: new Text('Иформация об оплате'),
                 content: Text('К опалате: $cost руб.'),
                 actions: <Widget>[

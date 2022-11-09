@@ -94,15 +94,15 @@ class MyWidget extends State {
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Кофейня',
+            icon: Icon(Icons.coffee),
+            label: 'Меню',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.assessment),
+            icon: Icon(Icons.list_rounded),
             label: 'Заказы',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.qr_code_scanner_outlined),
             label: 'QR сканер',
           ),
         ],

@@ -43,12 +43,20 @@ class _OrderPageState extends State<OrderPage> {
         ),
         body: ListView(key: scrollKey, children: [
           Column(children: orderPreview),
-          ElevatedButton(
+          Container(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(12), // <-- Radius
+                ),
+                  elevation: 5,
+                  minimumSize: Size( height * 0.3,   width * 0.15 )
+              ),
               onPressed: () {
                 Provider.of<OrderController>(context, listen: false)
                     .getActiveOrders();
               },
-              child: Text('Обновить'))
+              child: Text('Обновить')))
         ]));
   }
 }

@@ -62,9 +62,9 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement build
     return CustomScrollView(slivers: <Widget>[
       SliverAppBar(
-          pinned: true,
+          pinned: false,
           snap: false,
-          floating: true,
+          floating: false,
           expandedHeight: height / 3.5,
           flexibleSpace: Stack(children: [
             Positioned(

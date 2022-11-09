@@ -21,7 +21,7 @@ class _OrderPreviewState extends State<OrderPreview> {
 
     return Container(
         height: height * 0.28,
-        width: width * 0.95,
+        width: width * 0.98,
         child: Card(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
@@ -43,7 +43,7 @@ class _OrderPreviewState extends State<OrderPreview> {
                 'Заказ № ${orderObject!.ids}',
                 style: TextStyle(fontSize: height * 0.028),
               ),
-              tileColor: Colors.green,
+              tileColor: Colors.black54,
             ),
             SizedBox(
               height: height * 0.01,
@@ -54,13 +54,13 @@ class _OrderPreviewState extends State<OrderPreview> {
 
                     // textDirection: TextDirection.rtl,
                     // defaultVerticalAlignment: TableCellVerticalAlignment.bottom,
-                    border: TableBorder.all(width: 0.5, color: Colors.grey),
+                    border: TableBorder.all(width: 0.5, color: Color.fromARGB(255, 63, 63, 63)),
                     children: [
                       TableRow(children: [
                         Text(
                           "Цена",
                           style: TextStyle(
-                              color: Color.fromARGB(255, 56, 165, 255)),
+                              color: Color.fromARGB(255, 255, 255, 255)),
                           textScaleFactor: 1.2,
                         ),
                         Text("${orderObject!.totalCost} руб.",
@@ -72,7 +72,7 @@ class _OrderPreviewState extends State<OrderPreview> {
                           "Время готовности",
                           textScaleFactor: 1.2,
                           style: TextStyle(
-                              color: Color.fromARGB(255, 56, 165, 255)),
+                              color: Color.fromARGB(255, 255, 255, 255)),
                         ),
                         Text("${orderObject!.requiredDateTime}",
                             textScaleFactor: 1.2),
@@ -83,7 +83,7 @@ class _OrderPreviewState extends State<OrderPreview> {
                           "Статус:",
                           textScaleFactor: 1.2,
                           style: TextStyle(
-                              color: Color.fromARGB(255, 56, 165, 255)),
+                              color: Color.fromARGB(255, 255, 255, 255)),
                         ),
                         orderObject!.isAccepted
                             ? Text("Заказ принят", textScaleFactor: 1.2)
@@ -95,7 +95,7 @@ class _OrderPreviewState extends State<OrderPreview> {
                           "Телефон пользователя",
                           textScaleFactor: 1.2,
                           style: TextStyle(
-                              color: Color.fromARGB(255, 56, 165, 255)),
+                              color: Color.fromARGB(255, 255, 255, 255)),
                         ),
                         Text(orderObject!.userPhone.toString(),
                             textScaleFactor: 1.2)
@@ -107,6 +107,14 @@ class _OrderPreviewState extends State<OrderPreview> {
               height: height * 0.01,
             ),
             ElevatedButton(
+               style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(12), // <-- Radius
+    ),
+      elevation: 5,
+      minimumSize: Size( height * 0.42,   width * 0.10 ),
+      backgroundColor: Colors.black45,
+      ),
                 onPressed: () {
                   Navigator.push(
                       context,

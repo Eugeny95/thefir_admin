@@ -28,6 +28,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     OrderController orderController =
         Provider.of<OrderController>(context, listen: true);
 
@@ -40,7 +41,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
               Expanded(
                 child: Text(line.name,
                     style: TextStyle(
-                        color: Color.fromARGB(255, 252, 172, 24),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         fontSize: 20)),
                 flex: 2,
               ),
@@ -48,7 +49,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                 child: Text(
                   line.fieldSelection.selectedField!.name + ' мл',
                   textAlign: TextAlign.right,
-                  style: TextStyle(color: Colors.blue, fontSize: 20),
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 20),
                 ),
                 flex: 1,
               ),
@@ -73,11 +74,11 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                               ? Text(line.options[index].name,
                                   textAlign: TextAlign.right,
                                   style: TextStyle(
-                                      color: Colors.blue, fontSize: 15))
+                                      color: Color.fromARGB(255, 255, 255, 255), fontSize: 15))
                               : Text(line.options[index].name,
                                   textAlign: TextAlign.right,
                                   style: TextStyle(
-                                      color: Colors.blue, fontSize: 15));
+                                      color: Color.fromARGB(255, 255, 255, 255), fontSize: 15));
                         })),
               ],
             ),
@@ -93,7 +94,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                 child: Text(
                   line.count.toString(),
                   textAlign: TextAlign.right,
-                  style: TextStyle(color: Colors.blue, fontSize: 15),
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                 ),
                 flex: 1,
               ),
@@ -110,7 +111,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                 child: Text(
                   line.totalCost.toString(),
                   textAlign: TextAlign.right,
-                  style: TextStyle(color: Colors.blue, fontSize: 15),
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
                 ),
                 flex: 1,
               ),
@@ -137,12 +138,12 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                               ListTile(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(15),
-                                        topRight: Radius.circular(15),
+                                        topLeft: Radius.circular(1),
+                                        topRight: Radius.circular(1),
                                         bottomRight: Radius.circular(15),
                                         bottomLeft: Radius.circular(15))),
                                 title: Text('Детали заказа'),
-                                tileColor: Colors.green,
+                                tileColor: Color.fromARGB(255, 35, 35, 35),
                               ),
                               SizedBox(
                                 height: 15,
@@ -152,27 +153,48 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                               ),
                               Divider(
                                 color: Color(0xFF070707),
-                                height: 25,
+                                height: 20,
                               ),
                               Text(
                                 'Итого: ${_orderObject!.totalCost} руб.',
                                 style: TextStyle(
-                                    color: Color.fromARGB(255, 243, 33, 33),
-                                    fontSize: 25),
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontSize: 21),
                               ),
                               SizedBox(
                                 height: 15,
                               ),
                               !_orderObject!.isAccepted
-                                  ? TextButton(
+                              
+                                  ? ElevatedButton(
+                                       style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(12), // <-- Radius
+                ),
+                  elevation: 5,
+                  minimumSize: Size( height * 0.4,   width * 0.15 )
+              ),
                                       onPressed: () {
                                         orderController
                                             .acceptOrder(_orderObject!.ids);
                                         orderController.notifyListeners();
                                       },
-                                      child: Text('Принять'))
+                                      child: Text('Принять',
+                                      style: TextStyle(
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontSize: 15)))
                                   : Row(key: UniqueKey()),
+                                  SizedBox(
+                                height: 10,
+                              ),
                               ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(12), // <-- Radius
+                ),
+                  elevation: 5,
+                  minimumSize: Size( height * 0.4,   width * 0.15 )
+              ),
                                   onPressed: () async {
                                     await showDialog(
                                         context: context,
