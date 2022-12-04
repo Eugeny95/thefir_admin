@@ -95,7 +95,10 @@ class EditDishDialogState extends State<EditDishDialog> {
     return Scaffold(
       //title: Text("Редактирование меню"),
       appBar: AppBar(
-        title: Text('Создание напитка'),
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+        title: Text('Создание напитка',
+          style: TextStyle(color: Colors.black)),
       ),
       body: ListView(shrinkWrap: true, children: [
         Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
@@ -109,14 +112,15 @@ class EditDishDialogState extends State<EditDishDialog> {
                         SizedBox(
                           height: 25,
                         ),
-                        Divider(color: Colors.black),
+                        
                         addPic,
-                        Divider(color: Colors.black),
+                       
                         Container(
                             padding: const EdgeInsets.symmetric(
                                 vertical: 10, horizontal: 10),
-                            child: TextFormField(
-                              cursorColor: Colors.white,
+                            child: 
+                            TextFormField(
+                              cursorColor: Color.fromARGB(255, 77, 77, 77),
                               validator: (value) {
                                 return Validator.isEmptyValid(value!);
                               },
@@ -124,9 +128,18 @@ class EditDishDialogState extends State<EditDishDialog> {
                                 dishObject.name = value;
                               },
                               decoration: InputDecoration(
-                                fillColor: Colors.white,
-                                focusColor: Color.fromARGB(255, 47, 47, 47),
+                                fillColor: Color.fromARGB(255, 77, 77, 77),
+                            focusColor: Color.fromARGB(255, 77, 77, 77),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                              focusedBorder: 
+                              OutlineInputBorder( 
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(color: Color.fromARGB(255, 77, 77, 77),
+                                width: 2.0)),
                                 labelText: 'Наименование напитка',
+                                labelStyle: TextStyle(
+                                color: Color.fromARGB(255, 77, 77, 77))
                               ),
                             )),
                         Divider(color: Colors.white),
@@ -162,7 +175,8 @@ class EditDishDialogState extends State<EditDishDialog> {
                                     
                                   });
                             },
-                            child: Text('Добавить объём')),
+                            child: Text('Добавить объём',
+          style: TextStyle(color: Color.fromARGB(255, 69, 69, 69)))),
                         Divider(color: Colors.black),
                         Row(children: [
                           Expanded(
@@ -188,18 +202,30 @@ class EditDishDialogState extends State<EditDishDialog> {
                                     return (AddPropertyDialog(this));
                                   });
                             },
-                            child: Text('Добавить свойство')),
+                            child: Text('Добавить свойство',
+          style: TextStyle(color: Color.fromARGB(255, 69, 69, 69)))),
                         Divider(color: Colors.black),
                         TextField(
+                          cursorColor: Color.fromARGB(255, 77, 77, 77),
                           keyboardType: TextInputType.multiline,
                           maxLines: null,
                           onChanged: (String value) {
                             dishObject.description = value;
                           },
                           decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            prefixIcon: Icon(Icons.description),
+                            fillColor: Color.fromARGB(255, 77, 77, 77),
+                            focusColor: Color.fromARGB(255, 77, 77, 77),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                              focusedBorder: 
+                              OutlineInputBorder( 
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(color: Color.fromARGB(255, 77, 77, 77),
+                                width: 2.0)),
+                            prefixIcon: Icon(Icons.description, color: Color.fromARGB(255, 94, 94, 94)),
                             labelText: 'Введите описание',
+                            labelStyle: TextStyle(
+                                color: Color.fromARGB(255, 77, 77, 77))
                           ),
                         ),
                         Divider(color: Colors.black),
@@ -232,7 +258,8 @@ class EditDishDialogState extends State<EditDishDialog> {
                                 );
                               }
                             },
-                            child: Text('Сохранить')),
+                            child: Text('Сохранить',
+          style: TextStyle(color: Color.fromARGB(255, 69, 69, 69)))),
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
                           child: ElevatedButton(
@@ -252,11 +279,13 @@ class EditDishDialogState extends State<EditDishDialog> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                       content: Text(
-                                          'Дождитесь окончания загрузки изображения на сервер')),
+                                          'Дождитесь окончания загрузки изображения на сервер',
+          style: TextStyle(color: Color.fromARGB(255, 69, 69, 69)))),
                                 );
                               }
                             },
-                            child: Text('Отмена'),
+                            child: Text('Отмена',
+          style: TextStyle(color: Color.fromARGB(255, 69, 69, 69))),
                           ),
                         ),
                       ]))))

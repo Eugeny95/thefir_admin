@@ -65,7 +65,8 @@ class _HomePageState extends State<HomePage> {
           pinned: false,
           snap: false,
           floating: false,
-          expandedHeight: height / 3.5,
+          expandedHeight: height / 3.7,
+          backgroundColor: Colors.white,
           flexibleSpace: Stack(children: [
             Positioned(
                 child: FlexibleSpaceBar(
@@ -79,7 +80,8 @@ class _HomePageState extends State<HomePage> {
                 bottom: 0),
             Positioned(
               child: IconButton(
-                  icon: Icon(Icons.edit_outlined),
+                  icon: Icon(Icons.mode_edit_outline_rounded),
+                  color: Colors.white,
                   onPressed: () {
                     showDialog(
                       context: context,
@@ -90,8 +92,8 @@ class _HomePageState extends State<HomePage> {
                       },
                     );
                   }),
-              top: 20,
-              right: 0,
+              top: 25,
+              right: 5,
             ),
             Positioned(
               child: Container(
@@ -117,62 +119,62 @@ class _HomePageState extends State<HomePage> {
                 child: Column(children: [
               Row(children: [
                 Text(
-                    '   Время работы:',
+                    '   Внимание бариста',
                     style: TextStyle(
                         fontWeight: FontWeight.normal),
                   ),
                 ]),
                 Row(children: [
                   Text(
-                    '    Будни (Пн-Пт) 10:00-22:00',
+                    '    Тут можно что то написать персоналу',
                     style: TextStyle(
                         fontWeight: FontWeight.normal),
                   ),
                 ]),
                 Row(children: [
                   Text(
-                    '    Выходные (Сб-Вс) 11:00-22:00',
+                    '    ',
                     style: TextStyle(
                         fontWeight: FontWeight.normal),
                   ),
                   
                 ])
               ])),
-            Row(
-              children: [
-                SizedBox(
-                    width: width / 2,
-                    child: ElevatedButton(
-                        style: ButtonStyle(
-                            backgroundColor: index == 0
-                                ? MaterialStateProperty.all(Colors.grey[800])
-                                : MaterialStateProperty.all(
-                                    Color.fromARGB(255, 37, 37, 19))),
-                        onPressed: () {
-                          setState(() {
-                            index = 0;
-                            print(index);
-                          });
-                        },
-                        child: Text('Напитки'))),
-                SizedBox(
-                    width: width / 2,
-                    child: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: index == 1
-                              ? MaterialStateProperty.all(Colors.grey[800])
-                              : MaterialStateProperty.all(
-                                  Color.fromARGB(255, 37, 37, 19)),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            print(index);
-                            index = 1;
-                          });
-                        },
-                        child: Text('Кондитерка'))),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     SizedBox(
+            //         width: width / 2,
+            //         child: ElevatedButton(
+            //             style: ButtonStyle(
+            //                 backgroundColor: index == 0
+            //                     ? MaterialStateProperty.all(Colors.grey[800])
+            //                     : MaterialStateProperty.all(
+            //                         Color.fromARGB(255, 37, 37, 19))),
+            //             onPressed: () {
+            //               setState(() {
+            //                 index = 0;
+            //                 print(index);
+            //               });
+            //             },
+            //             child: Text('Напитки'))),
+            //     SizedBox(
+            //         width: width / 2,
+            //         child: ElevatedButton(
+            //             style: ButtonStyle(
+            //               backgroundColor: index == 1
+            //                   ? MaterialStateProperty.all(Colors.grey[800])
+            //                   : MaterialStateProperty.all(
+            //                       Color.fromARGB(255, 37, 37, 19)),
+            //             ),
+            //             onPressed: () {
+            //               setState(() {
+            //                 print(index);
+            //                 index = 1;
+            //               });
+            //             },
+            //             child: Text('Кондитерка'))),
+            //   ],
+            // ),
             index == 0
                 ? Column(children: cofWidget)
                 : Column(children: cakeWidget)

@@ -41,9 +41,10 @@ class _OrderPreviewState extends State<OrderPreview> {
                       bottomLeft: Radius.circular(15))),
               title: Text(
                 'Заказ № ${orderObject!.ids}',
-                style: TextStyle(fontSize: height * 0.028),
+                style: TextStyle(fontSize: height * 0.028,
+                color: Color.fromARGB(255, 50, 50, 50)),
               ),
-              tileColor: Colors.black54,
+              tileColor: Color.fromARGB(137, 220, 220, 220),
             ),
             SizedBox(
               height: height * 0.01,
@@ -54,14 +55,14 @@ class _OrderPreviewState extends State<OrderPreview> {
 
                     // textDirection: TextDirection.rtl,
                     // defaultVerticalAlignment: TableCellVerticalAlignment.bottom,
-                    border: TableBorder.all(width: 0.5, color: Color.fromARGB(255, 63, 63, 63)),
+                    border: TableBorder.all(width: 0.5, color: Color.fromARGB(255, 231, 231, 231)),
                     children: [
                       TableRow(children: [
                         Text(
                           "Цена",
                           style: TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255)),
-                          textScaleFactor: 1.2,
+                              color: Color.fromARGB(255, 97, 97, 97)),
+                          textScaleFactor: 1.1,
                         ),
                         Text("${orderObject!.totalCost} руб.",
                             textScaleFactor: 1.2),
@@ -70,35 +71,35 @@ class _OrderPreviewState extends State<OrderPreview> {
                       TableRow(children: [
                         Text(
                           "Время готовности",
-                          textScaleFactor: 1.2,
+                          textScaleFactor: 1.1,
                           style: TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255)),
+                              color: Color.fromARGB(255, 97, 97, 97)),
                         ),
                         Text("${orderObject!.requiredDateTime}",
-                            textScaleFactor: 1.2),
+                            textScaleFactor: 1.1),
                         // Text("University", textScaleFactor: 1.5),
                       ]),
                       TableRow(children: [
                         Text(
                           "Статус:",
-                          textScaleFactor: 1.2,
+                          textScaleFactor: 1.1,
                           style: TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255)),
+                              color: Color.fromARGB(255, 97, 97, 97)),
                         ),
                         orderObject!.isAccepted
-                            ? Text("Заказ принят", textScaleFactor: 1.2)
-                            : Text("Ожидает подтвержения", textScaleFactor: 1.2)
+                            ? Text("Заказ принят", textScaleFactor: 1.1)
+                            : Text("Ожидает подтвержения", textScaleFactor: 1.1)
                         // Text("University", textScaleFactor: 1.5),
                       ]),
                       TableRow(children: [
                         Text(
                           "Телефон пользователя",
-                          textScaleFactor: 1.2,
+                          textScaleFactor: 1.1,
                           style: TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255)),
+                              color: Color.fromARGB(255, 97, 97, 97)),
                         ),
                         Text(orderObject!.userPhone.toString(),
-                            textScaleFactor: 1.2)
+                            textScaleFactor: 1.1)
 
                         // Text("University", textScaleFactor: 1.5),
                       ]),

@@ -27,20 +27,20 @@ class _DishViewState extends State<DishView> {
         child: Container(
             child: Stack(children: [
           Container(
-            width: width / 2.05,
-            height: height / 2.9,
+            width: width / 2.15,
+            height: height / 3.1,
             padding: const EdgeInsets.only(top: 4.0),
-            margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+            margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
-                color: Colors.grey[800]),
+                color: Colors.grey[350]),
             child: Column(children: [
               Container(
-                width: width / 2.15,
-                height: height / 4,
+                width: width / 2.25,
+                height: height / 4.5,
                 padding: EdgeInsets.all(2), // Border width
                 decoration: BoxDecoration(
-                    color: Colors.black54,
+                    color: Colors.grey,
                     borderRadius: BorderRadius.circular(20.0)),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20.0),
@@ -67,19 +67,19 @@ class _DishViewState extends State<DishView> {
               '',
               textDirection: TextDirection.ltr,
               style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey[350],
+                // fontSize: 12,
+                // color: Colors.grey[350],
               ),
             ),
           ),
           Positioned(
-            bottom: 10,
-            left: 8,
+            bottom: height / 65,
+            left: width / 29,
             child: Container(
-              width: width / 2.2,
+              width: width / 2.35,
               height: height / 18,
               decoration: BoxDecoration(
-                  color: Colors.black54,
+                  color: Color.fromARGB(255, 246, 246, 246),
                   borderRadius: BorderRadius.circular(14.0)),
               child: Center(
                 child: Text(
@@ -87,7 +87,7 @@ class _DishViewState extends State<DishView> {
                   textDirection: TextDirection.ltr,
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
               ),
@@ -102,7 +102,7 @@ class _DishViewState extends State<DishView> {
                       .deleteCoffe(dishObject);
                 },
                 elevation: 1.0,
-                fillColor: Colors.grey[500],
+                fillColor: Colors.grey[350],
                 child: Icon(
                   Icons.close_sharp,
                   color: Colors.black,

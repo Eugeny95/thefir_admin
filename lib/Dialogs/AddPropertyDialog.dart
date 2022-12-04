@@ -36,18 +36,27 @@ class AddPropertyDialogState extends State<AddPropertyDialog> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: TextFormField(
+                    cursorColor: Color.fromARGB(255, 77, 77, 77),
                     validator: (value) {},
                     onChanged: (String value) {
                       property.name = value;
                     },
                     decoration: InputDecoration(
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 77, 77, 77))),
+                      fillColor: Color.fromARGB(255, 77, 77, 77),
+                      focusColor: Color.fromARGB(255, 77, 77, 77),
                       labelText: 'Наименование',
+                      labelStyle:
+                          TextStyle(color: Color.fromARGB(255, 77, 77, 77)),
                     ),
                   )),
               Container(
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: TextFormField(
+                    cursorColor: Color.fromARGB(255, 77, 77, 77),
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       //FilteringTextInputFormatter.allow(RegExp(r'[0-9.,]')),
@@ -65,17 +74,23 @@ class AddPropertyDialogState extends State<AddPropertyDialog> {
                       property.price = double.parse(value);
                     },
                     decoration: InputDecoration(
-                      labelText: 'Цена',
-                    ),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 77, 77, 77))),
+                        fillColor: Color.fromARGB(255, 77, 77, 77),
+                        focusColor: Color.fromARGB(255, 77, 77, 77),
+                        labelText: 'Цена',
+                        labelStyle:
+                            TextStyle(color: Color.fromARGB(255, 77, 77, 77))),
                   )),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12), // <-- Radius
-    ),
-      elevation: 5,
-      minimumSize: Size( height * 0.65,   width * 0.13 ),
-      ),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12), // <-- Radius
+                    ),
+                    elevation: 5,
+                    minimumSize: Size(height * 0.65, width * 0.13),
+                  ),
                   onPressed: () {
                     baseClass.dishObject.options.add(property);
                     baseClass.dishObject.options =
@@ -84,12 +99,13 @@ class AddPropertyDialogState extends State<AddPropertyDialog> {
                     Navigator.pop(context);
                     ;
                   },
-                  child: Text('Добавить свойство'))
+                  child: Text('Добавить свойство',
+                      style: TextStyle(color: Color.fromARGB(255, 77, 77, 77))))
             ],
           ),
         ),
         shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20))));
+            borderRadius: BorderRadius.all(Radius.circular(20))));
   }
 }
 
@@ -113,11 +129,10 @@ class AddPriceOfVolumeDialogState extends State<AddPriceOfVolumeDialog> {
     // initialValueWidget = Column();
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    
 
     // TODO: implement build
     return AlertDialog(
-        title: Text('Добавить объём/массу'),
+        title: Text('Добавить объём'),
         content: Container(
           width: width * 0.96,
           child: Column(
@@ -126,6 +141,7 @@ class AddPriceOfVolumeDialogState extends State<AddPriceOfVolumeDialog> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: TextFormField(
+                    cursorColor: Color.fromARGB(255, 77, 77, 77),
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       TextInputFormatter.withFunction((oldValue, newValue) {
@@ -142,13 +158,21 @@ class AddPriceOfVolumeDialogState extends State<AddPriceOfVolumeDialog> {
                       option.name = (value);
                     },
                     decoration: InputDecoration(
-                      labelText: 'Объем, мл (Масса, г)',
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 77, 77, 77))),
+                        fillColor: Color.fromARGB(255, 77, 77, 77),
+                        focusColor: Color.fromARGB(255, 77, 77, 77),
+                      labelText: 'Объем, мл',
+                      labelStyle:
+                          TextStyle(color: Color.fromARGB(255, 77, 77, 77)),
                     ),
                   )),
               Container(
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: TextFormField(
+                    cursorColor: Color.fromARGB(255, 77, 77, 77),
                     keyboardType: TextInputType.number,
                     inputFormatters: <TextInputFormatter>[
                       //FilteringTextInputFormatter.allow(RegExp(r'[0-9.,]')),
@@ -166,28 +190,36 @@ class AddPriceOfVolumeDialogState extends State<AddPriceOfVolumeDialog> {
                       option.price = double.parse(value);
                     },
                     decoration: InputDecoration(
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 77, 77, 77))),
+                        fillColor: Color.fromARGB(255, 77, 77, 77),
+                        focusColor: Color.fromARGB(255, 77, 77, 77),
                       labelText: 'Цена, руб',
+                      labelStyle:
+                          TextStyle(color: Color.fromARGB(255, 77, 77, 77)),
                     ),
                   )),
               ElevatedButton(
-                 style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12), // <-- Radius
-    ),
-      elevation: 5,
-      minimumSize: Size( height * 0.65,   width * 0.13 ),
-      ),
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12), // <-- Radius
+                    ),
+                    elevation: 5,
+                    minimumSize: Size(height * 0.65, width * 0.13),
+                  ),
                   onPressed: () {
                     baseClass.dishObject.fieldSelection!.fields.add(option);
 
                     baseClass.setState(() {});
                     Navigator.pop(context);
                   },
-                  child: Text('Добавить'))
+                  child: Text('Добавить',
+                      style: TextStyle(color: Color.fromARGB(255, 77, 77, 77))))
             ],
           ),
         ),
         shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20))));
+            borderRadius: BorderRadius.all(Radius.circular(20))));
   }
 }

@@ -96,7 +96,10 @@ class EditCarouselD extends State<EditCarouselDialog> {
 
                   Navigator.pop(context);
                 },
-                child: Text('Отправить')),
+                child: Text('Отправить',
+                style: TextStyle(
+                  color: Colors.black
+                ))),
             Padding(padding:EdgeInsets.all(5)),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -110,7 +113,10 @@ class EditCarouselD extends State<EditCarouselDialog> {
                   isCansel = true;
                   Navigator.pop(context);
                 },
-                child: Text('Отменить'))
+                child: Text('Отменить',
+                style: TextStyle(
+                  color: Colors.black
+                )))
           ])),
     shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20))));

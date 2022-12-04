@@ -36,7 +36,7 @@ class _BonusesDialogState extends State<BonusesDialog> {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20.0))),
       title: new Text('Завершение заказа'),
-      content: Text('Списать/начислить бонусы'),
+      content: Text('Начислить бонусы'),
       actions: <Widget>[
         ElevatedButton(
           onPressed: () async {
@@ -66,7 +66,10 @@ class _BonusesDialogState extends State<BonusesDialog> {
             Navigator.of(context, rootNavigator: true)
                 .pop(); // dismisses only the dialog and returns nothing
           },
-          child: new Text('Списать $currentBonusesBalance бонусов'),
+          child: new Text('Списать $currentBonusesBalance бонусов',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 44, 44, 44)
+                    ),),
         ),
         ElevatedButton(
           onPressed: () async {
@@ -87,7 +90,10 @@ class _BonusesDialogState extends State<BonusesDialog> {
                       Navigator.of(context, rootNavigator: true)
                           .pop(); // dismisses only the dialog and returns nothing
                     },
-                    child: new Text('OK'),
+                    child: new Text('OK',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 43, 43, 43)
+                    ),),
                   ),
                 ],
               ),
@@ -95,7 +101,10 @@ class _BonusesDialogState extends State<BonusesDialog> {
             Navigator.of(context, rootNavigator: true)
                 .pop(); // dismisses only the dialog and returns nothing
           },
-          child: new Text('Начислить ${cost / 100} бонусов'),
+          child: new Text('Начислить бонусный стаканчик',
+          style: TextStyle(
+            color: Color.fromARGB(255, 51, 51, 51)
+          ),),
         ),
         ElevatedButton(
           onPressed: () async {
@@ -112,7 +121,10 @@ class _BonusesDialogState extends State<BonusesDialog> {
                       Navigator.of(context, rootNavigator: true)
                           .pop(); // dismisses only the dialog and returns nothing
                     },
-                    child: new Text('OK'),
+                    child: new Text('OK',
+                    style: TextStyle(
+                      color: Colors.black
+                    ),),
                   ),
                 ],
               ),
@@ -120,7 +132,10 @@ class _BonusesDialogState extends State<BonusesDialog> {
             Navigator.of(context, rootNavigator: true)
                 .pop(); // dismisses only the dialog and returns nothing
           },
-          child: new Text('Завершить'),
+          child: new Text('Завершить',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 28, 28, 28)
+                    )),
         ),
       ],
     );

@@ -39,7 +39,9 @@ class _OrderPageState extends State<OrderPage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Активные заказы '),
+          backgroundColor: Colors.white,
+          title: Text('Активные заказы ',
+          style: TextStyle(color: Colors.black)),
         ),
         body: ListView(key: scrollKey, children: [
           Column(children: orderPreview),
@@ -56,7 +58,8 @@ class _OrderPageState extends State<OrderPage> {
                 Provider.of<OrderController>(context, listen: false)
                     .getActiveOrders();
               },
-              child: Text('Обновить')))
+              child: Text('Обновить',
+              style: TextStyle(color: Colors.black))))
         ]));
   }
 }

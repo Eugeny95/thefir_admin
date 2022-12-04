@@ -89,6 +89,7 @@ class MyWidget extends State {
     return Scaffold(
       body: Center(child: Screens[index]),
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Color.fromARGB(255, 38, 38, 38),
         currentIndex: index,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
@@ -102,8 +103,8 @@ class MyWidget extends State {
             label: 'Заказы',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code_scanner_outlined),
-            label: 'QR сканер',
+            icon: Icon(Icons.pets_outlined),
+            label: 'Админ',
           ),
         ],
       ),

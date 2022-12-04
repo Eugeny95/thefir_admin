@@ -96,7 +96,7 @@ class AddPictureState extends State<AddPicture> {
                   }
                 },
                 elevation: 2.0,
-                fillColor: Color.fromARGB(255, 33, 33, 33),
+                fillColor: Color.fromARGB(166, 215, 215, 215),
                 child: Icon(
                   Icons.close_sharp,
                   //color: Colors.red,

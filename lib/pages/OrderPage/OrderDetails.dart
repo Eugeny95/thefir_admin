@@ -41,7 +41,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
               Expanded(
                 child: Text(line.name,
                     style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: Color.fromARGB(255, 68, 68, 68),
                         fontSize: 20)),
                 flex: 2,
               ),
@@ -49,7 +49,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                 child: Text(
                   line.fieldSelection.selectedField!.name + ' мл',
                   textAlign: TextAlign.right,
-                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 20),
+                  style: TextStyle(color: Color.fromARGB(255, 68, 68, 68), fontSize: 20),
                 ),
                 flex: 1,
               ),
@@ -61,7 +61,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                     flex: 1,
                     child: Text('Добавки:',
                         style: TextStyle(
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: Color.fromARGB(255, 68, 68, 68),
                             //  fontWeight: FontWeight.bold,
                             fontSize: 15))),
                 Expanded(
@@ -86,7 +86,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
               Expanded(
                 child: Text('Количество',
                     style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: Color.fromARGB(255, 68, 68, 68),
                         fontSize: 15)),
                 flex: 2,
               ),
@@ -94,7 +94,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                 child: Text(
                   line.count.toString(),
                   textAlign: TextAlign.right,
-                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
+                  style: TextStyle(color: Color.fromARGB(255, 68, 68, 68), fontSize: 15),
                 ),
                 flex: 1,
               ),
@@ -103,7 +103,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
               Expanded(
                 child: Text('Стоимость',
                     style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: Color.fromARGB(255, 68, 68, 68),
                         fontSize: 15)),
                 flex: 2,
               ),
@@ -111,19 +111,23 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                 child: Text(
                   line.totalCost.toString(),
                   textAlign: TextAlign.right,
-                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 15),
+                  style: TextStyle(color: Color.fromARGB(255, 68, 68, 68), fontSize: 15),
                 ),
                 flex: 1,
               ),
             ]),
-            Divider(color: Color.fromARGB(255, 8, 8, 8)),
+            
             SizedBox(
               height: 10,
             ),
           ])));
     }
     return Scaffold(
-        appBar: AppBar(title: Text('Оформление заказа')),
+        appBar: AppBar(
+           iconTheme: IconThemeData(color: Colors.black),
+          backgroundColor: Colors.white, 
+          title: Text('Оформление заказа',
+          style: TextStyle(color: Colors.black))),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -143,7 +147,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                                         bottomRight: Radius.circular(15),
                                         bottomLeft: Radius.circular(15))),
                                 title: Text('Детали заказа'),
-                                tileColor: Color.fromARGB(255, 35, 35, 35),
+                                tileColor: Color.fromARGB(255, 224, 224, 224),
                               ),
                               SizedBox(
                                 height: 15,
@@ -152,14 +156,14 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                                 children: coffeLines,
                               ),
                               Divider(
-                                color: Color(0xFF070707),
+                                color: Color.fromARGB(255, 72, 72, 72),
                                 height: 20,
                               ),
                               Text(
                                 'Итого: ${_orderObject!.totalCost} руб.',
                                 style: TextStyle(
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    fontSize: 21),
+                                    color: Color.fromARGB(255, 82, 82, 82),
+                                    fontSize: 18),
                               ),
                               SizedBox(
                                 height: 15,
@@ -172,7 +176,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                  borderRadius: BorderRadius.circular(12), // <-- Radius
                 ),
                   elevation: 5,
-                  minimumSize: Size( height * 0.4,   width * 0.15 )
+                  minimumSize: Size( height * 0.4,   width * 0.12)
               ),
                                       onPressed: () {
                                         orderController
@@ -181,10 +185,30 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                                       },
                                       child: Text('Принять',
                                       style: TextStyle(
-                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    color: Color.fromARGB(255, 26, 26, 26),
                                     fontSize: 15)))
                                   : Row(key: UniqueKey()),
                                   SizedBox(
+                                height: 10,
+                              ),
+                             ElevatedButton(
+                                       style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(12), // <-- Radius
+                ),
+                  elevation: 5,
+                  minimumSize: Size( height * 0.4,   width * 0.12)
+              ),
+                                      onPressed: () {
+                                        // orderController
+                                        //     .acceptOrder(_orderObject!.ids);
+                                        // orderController.notifyListeners();
+                                      },
+                                      child: Text('Сообщить о готовности',
+                                      style: TextStyle(
+                                    color:  Color.fromARGB(255, 26, 26, 26),
+                                    fontSize: 15))),
+                                    SizedBox(
                                 height: 10,
                               ),
                               ElevatedButton(
@@ -193,7 +217,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                  borderRadius: BorderRadius.circular(12), // <-- Radius
                 ),
                   elevation: 5,
-                  minimumSize: Size( height * 0.4,   width * 0.15 )
+                  minimumSize: Size( height * 0.4,   width * 0.12 )
               ),
                                   onPressed: () async {
                                     await showDialog(
@@ -207,7 +231,11 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
 
                                     Navigator.pop(context);
                                   },
-                                  child: Text('Заказ исполнен')),
+                                  child: Text('Заказ исполнен',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 26, 26, 26),
+                                    fontSize: 15
+                                  ),)),
                               SizedBox(
                                 height: 15,
                               ),
