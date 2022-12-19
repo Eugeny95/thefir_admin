@@ -200,9 +200,9 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                   minimumSize: Size( height * 0.4,   width * 0.12)
               ),
                                       onPressed: () {
-                                        // orderController
-                                        //     .acceptOrder(_orderObject!.ids);
-                                        // orderController.notifyListeners();
+                                         orderController
+                                             .readyOrder(_orderObject!.ids);
+                                         orderController.notifyListeners();
                                       },
                                       child: Text('Сообщить о готовности',
                                       style: TextStyle(
@@ -226,8 +226,9 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                                               userId: _orderObject!.userId,
                                               cost: _orderObject!.totalCost,
                                             ));
+                                            print('order completed');
                                     orderController
-                                        .deleteOrder(_orderObject!.ids);
+                                        .completeOrder(_orderObject!.ids);
 
                                     Navigator.pop(context);
                                   },

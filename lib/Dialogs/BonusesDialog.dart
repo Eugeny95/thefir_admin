@@ -38,39 +38,39 @@ class _BonusesDialogState extends State<BonusesDialog> {
       title: new Text('Завершение заказа'),
       content: Text('Начислить бонусы'),
       actions: <Widget>[
-        ElevatedButton(
-          onPressed: () async {
-            RestController().sendDeleteRequest(
-                onComplete: (
-                    {required String data, required int statusCode}) {},
-                onError: ({required int statusCode}) {},
-                controller: 'client_bonuses',
-                data: '{"bonuses":$currentBonusesBalance, "user_id":$userId}');
-            await showDialog(
-              context: context,
-              builder: (context) => new AlertDialog(
-                title: new Text('Иформация об оплате'),
-                content:
-                    Text('К опалате: ${cost - currentBonusesBalance} руб.'),
-                actions: <Widget>[
-                  new ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context, rootNavigator: true)
-                          .pop(); // dismisses only the dialog and returns nothing
-                    },
-                    child: new Text('OK'),
-                  ),
-                ],
-              ),
-            );
-            Navigator.of(context, rootNavigator: true)
-                .pop(); // dismisses only the dialog and returns nothing
-          },
-          child: new Text('Списать $currentBonusesBalance бонусов',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 44, 44, 44)
-                    ),),
-        ),
+        // ElevatedButton(
+        //   onPressed: () async {
+        //     RestController().sendDeleteRequest(
+        //         onComplete: (
+        //             {required String data, required int statusCode}) {},
+        //         onError: ({required int statusCode}) {},
+        //         controller: 'client_bonuses',
+        //         data: '{"bonuses":$currentBonusesBalance, "user_id":$userId}');
+        //     await showDialog(
+        //       context: context,
+        //       builder: (context) => new AlertDialog(
+        //         title: new Text('Иформация об оплате'),
+        //         content:
+        //             Text('К опалате: ${cost - currentBonusesBalance} руб.'),
+        //         actions: <Widget>[
+        //           new ElevatedButton(
+        //             onPressed: () {
+        //               Navigator.of(context, rootNavigator: true)
+        //                   .pop(); // dismisses only the dialog and returns nothing
+        //             },
+        //             child: new Text('OK'),
+        //           ),
+        //         ],
+        //       ),
+        //     );
+        //     Navigator.of(context, rootNavigator: true)
+        //         .pop(); // dismisses only the dialog and returns nothing
+        //   },
+        //   child: new Text('Списать $currentBonusesBalance бонусов',
+        //             style: TextStyle(
+        //               color: Color.fromARGB(255, 44, 44, 44)
+        //             ),),
+        // ),
         ElevatedButton(
           onPressed: () async {
             RestController().sendPostRequest(
@@ -101,7 +101,7 @@ class _BonusesDialogState extends State<BonusesDialog> {
             Navigator.of(context, rootNavigator: true)
                 .pop(); // dismisses only the dialog and returns nothing
           },
-          child: new Text('Начислить бонусный стаканчик',
+          child: new Text('Завершить и начислить бонусный стаканчик',
           style: TextStyle(
             color: Color.fromARGB(255, 51, 51, 51)
           ),),
@@ -132,7 +132,7 @@ class _BonusesDialogState extends State<BonusesDialog> {
             Navigator.of(context, rootNavigator: true)
                 .pop(); // dismisses only the dialog and returns nothing
           },
-          child: new Text('Завершить',
+          child: new Text('Завершить без бонусов',
                     style: TextStyle(
                       color: Color.fromARGB(255, 28, 28, 28)
                     )),

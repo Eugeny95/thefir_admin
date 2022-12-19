@@ -8,6 +8,8 @@ class NetworkConfiguration {
   Map controllersMap = {
     'client_bonuses': '/controllers/client_bonuses',
     'accept_order': '/controllers/accept_order',
+    'ready_order':'/controllers/order_ready',
+    'complete_order':'/controllers/order_completed',
     'client': '/controllers/client',
     'order': "/controllers/order",
     'orders': "/controllers/orders",

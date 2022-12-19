@@ -92,6 +92,7 @@ class EditCarouselD extends State<EditCarouselDialog> {
                 onPressed: () {
                   coffeHouse.photos = images;
                   isCansel = false;
+                  print(coffeHouse.photos);
                   coffeHouse.updateMainInformation();
 
                   Navigator.pop(context);

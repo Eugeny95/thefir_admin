@@ -98,7 +98,7 @@ class OrderController with ChangeNotifier {
   void acceptOrder(int id) {
     RestController().sendGetRequest(
         onComplete: ({required String data, required int statusCode}) {
-          notifyListeners();
+          getActiveOrders();
         },
         onError: ({required int statusCode}) {
           notifyListeners();
@@ -107,6 +107,37 @@ class OrderController with ChangeNotifier {
         data: '?order_id=$id');
     notifyListeners();
   }
+
+    void completeOrder(int id) {
+      print('onCompleteMethod');
+    RestController().sendGetRequest(
+        onComplete: ({required String data, required int statusCode}) {
+          getActiveOrders();
+          notifyListeners();
+        },
+        onError: ({required int statusCode}) {
+         
+          notifyListeners();
+        },
+        controller: 'complete_order',
+        data: '?order_id=$id');
+    notifyListeners();
+  }
+void readyOrder(int id){
+
+  RestController().sendGetRequest(
+        onComplete: ({required String data, required int statusCode}) {
+          notifyListeners();
+        },
+        onError: ({required int statusCode}) {
+          notifyListeners();
+        },
+        controller: 'ready_order',
+        data: '?order_id=$id');
+    notifyListeners();
+}
+
+  
 
   /// chatModel = box.get('abonents');
 

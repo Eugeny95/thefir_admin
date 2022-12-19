@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:coffe_admin/utils/Network/RestController.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,7 @@ class _QRViewExampleState extends State<QRViewExample> {
   void reassemble() {
     super.reassemble();
   }
+  String phone = '';
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +178,9 @@ class _QRViewExampleState extends State<QRViewExample> {
                                     FilteringTextInputFormatter.allow(
                                         RegExp(r'[0-9.,]'))
                                   ],
-                                  onChanged: (String value) {},
+                                  onChanged: (String value) {
+                                    phone=value;
+                                  },
                                   decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                           borderRadius:
@@ -208,7 +212,33 @@ class _QRViewExampleState extends State<QRViewExample> {
                                       elevation: 5,
                                       minimumSize:
                                           Size(height * 0.4, width * 0.15)),
-                                  onPressed: () async {},
+                                  onPressed: () async {
+                                    await showDialog(
+              context: context,
+              builder: (context) => new AlertDialog(
+                title: new Text('Бонусы успешно списаны'),
+                content: Text(''),
+                actions: <Widget>[
+                  new ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context, rootNavigator: true)
+                          .pop(); // dismisses only the dialog and returns nothing
+                    },
+                    child: new Text('Завершить',
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 43, 43, 43)
+                    ),),
+                  ),
+                ],
+              ),
+            );
+                                    RestController().sendDeleteRequest(
+                onComplete: (
+                    {required String data, required int statusCode}) {},
+                onError: ({required int statusCode}) {},
+                controller: 'client_bonuses',
+                data: '{"phone":$phone}');
+                                  },
                                   child: Text(
                                     'Списать бонусы',
                                     style: TextStyle(
