@@ -16,7 +16,7 @@ Future<void> initForegroundTask() async {
       //do something here
     }
   });
-  await FlutterForegroundTask.init(
+  FlutterForegroundTask.init(
     androidNotificationOptions: AndroidNotificationOptions(
       channelId: 'notification_channel_id',
       channelName: 'Foreground Notification',
@@ -43,7 +43,7 @@ Future<void> initForegroundTask() async {
       autoRunOnBoot: true,
       allowWifiLock: true,
     ),
-    printDevLog: true,
+    
   );
 }
 
@@ -64,7 +64,7 @@ class FirstTaskHandler extends TaskHandler {
     final customData =
         await FlutterForegroundTask.getData<String>(key: 'customData');
     print('customData: $customData');
-    OrderNotification(_sendPort);
+    
   }
 
   @override

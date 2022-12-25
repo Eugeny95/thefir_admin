@@ -14,10 +14,14 @@ class OrderPreview extends StatefulWidget {
 class _OrderPreviewState extends State<OrderPreview> {
   OrderObject? orderObject;
   _OrderPreviewState(this.orderObject);
+  String status = '';
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    if (orderObject!.isAccepted) status = 'Заказ принят';
+    if (!orderObject!.isAccepted) status = 'Ожидает подтверждения';
+    if (orderObject!.isReady) status = 'Заказ готов';
 
     return Container(
         height: height * 0.28,
@@ -86,9 +90,9 @@ class _OrderPreviewState extends State<OrderPreview> {
                           style: TextStyle(
                               color: Color.fromARGB(255, 97, 97, 97)),
                         ),
-                        orderObject!.isAccepted
-                            ? Text("Заказ принят", textScaleFactor: 1.1)
-                            : Text("Ожидает подтвержения", textScaleFactor: 1.1)
+                       
+                            Text(status, textScaleFactor: 1.1)
+                            
                         // Text("University", textScaleFactor: 1.5),
                       ]),
                       TableRow(children: [

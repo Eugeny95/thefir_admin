@@ -174,6 +174,7 @@ class _QRViewExampleState extends State<QRViewExample> {
                                   cursorColor:
                                       Color.fromARGB(255, 104, 103, 103),
                                   keyboardType: TextInputType.number,
+                                  controller: TextEditingController()..text = phone,
                                   inputFormatters: <TextInputFormatter>[
                                     FilteringTextInputFormatter.allow(
                                         RegExp(r'[0-9.,]'))
@@ -234,7 +235,12 @@ class _QRViewExampleState extends State<QRViewExample> {
             );
                                     RestController().sendDeleteRequest(
                 onComplete: (
-                    {required String data, required int statusCode}) {},
+                    {required String data, required int statusCode}) {
+                      phone='';
+                      setState(() {
+                        
+                      });
+                    },
                 onError: ({required int statusCode}) {},
                 controller: 'client_bonuses',
                 data: '{"phone":$phone}');

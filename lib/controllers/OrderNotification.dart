@@ -1,5 +1,6 @@
 import 'dart:isolate';
 
+import 'package:coffe_admin/controllers/OrdersController.dart';
 import 'package:coffe_admin/utils/Security/Auth.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:socket_io_client/socket_io_client.dart';
@@ -20,7 +21,7 @@ class OrderNotification {
             .build());
   }
 
-  OrderNotification(this._sendPort) {
+  OrderNotification() {
     socketReInit();
     socket.connect();
     socket.onConnect((_) {
@@ -28,7 +29,7 @@ class OrderNotification {
     });
     socket.on('message', (data) {
       NotificationController().showNotification();
-      _sendPort!.send('new order');
+      OrderController().getActiveOrders();
     });
     socket.onDisconnect((data) => print('disconnect'));
   }

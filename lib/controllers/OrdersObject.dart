@@ -10,6 +10,7 @@ class OrderObject with ChangeNotifier {
   bool onPlace = false;
   String requiredDateTime = '';
   bool isComplete = false;
+  bool isReady = false;
   bool isAccepted = false;
   int userId = -1;
   String userPhone = '';
@@ -23,6 +24,7 @@ class OrderObject with ChangeNotifier {
     idPayment = jsonMap['id_payment'];
     ids = jsonMap['id'];
     userId = jsonMap['user_id'];
+    isReady = jsonMap['is_ready'];
 
     requiredDateTime = jsonMap['required_datetime'];
     userPhone = jsonMap['user_phone'];

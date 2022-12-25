@@ -1,13 +1,13 @@
 import 'dart:isolate';
 
+import 'package:coffe_admin/controllers/OrderNotification.dart';
 import 'package:coffe_admin/controllers/OrdersController.dart';
 import 'package:coffe_admin/pages/HomePage/HomePage.dart';
 import 'package:coffe_admin/pages/HomePage/TestPage.dart';
 import 'package:coffe_admin/pages/OrderPage/OrderPage.dart';
 import 'package:coffe_admin/utils/Custom_Theme.dart';
-import 'package:coffe_admin/utils/Service/Foreground.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_foreground_task/flutter_foreground_task.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
@@ -20,12 +20,15 @@ import 'package:provider/provider.dart';
 import 'pages/HomePage/HomePage.dart';
 import 'package:coffe_admin/utils/constance.dart';
 
+
+
 ReceivePort? _receivePort;
 void main() async {
   await Hive.initFlutter();
-
-  await initForegroundTask();
-  startForegroundTask();
+  
+ OrderNotification ();
+ // await initForegroundTask();
+ // await startForegroundTask();
 
   runApp(const MyApp());
 }

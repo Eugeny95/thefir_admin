@@ -30,6 +30,32 @@ class OrderController with ChangeNotifier {
     notifyListeners();
   }
 
+void readyOrder(int id){
+
+  RestController().sendGetRequest(
+        onComplete: ({required String data, required int statusCode}) {
+          notifyListeners();
+        },
+        onError: ({required int statusCode}) {
+          notifyListeners();
+        },
+        controller: 'ready_order',
+        data: '?order_id=$id');
+    notifyListeners();
+}
+  void acceptOrder(int id) {
+    RestController().sendGetRequest(
+        onComplete: ({required String data, required int statusCode}) {
+          getActiveOrders();
+        },
+        onError: ({required int statusCode}) {
+          notifyListeners();
+        },
+        controller: 'accept_order',
+        data: '?order_id=$id');
+    notifyListeners();
+  }
+
   void getActiveOrders() {
     RestController().sendGetRequest(
         onComplete: ({required String data, required int statusCode}) {
@@ -95,18 +121,6 @@ class OrderController with ChangeNotifier {
     notifyListeners();
   }
 
-  void acceptOrder(int id) {
-    RestController().sendGetRequest(
-        onComplete: ({required String data, required int statusCode}) {
-          getActiveOrders();
-        },
-        onError: ({required int statusCode}) {
-          notifyListeners();
-        },
-        controller: 'accept_order',
-        data: '?order_id=$id');
-    notifyListeners();
-  }
 
     void completeOrder(int id) {
       print('onCompleteMethod');
@@ -123,19 +137,9 @@ class OrderController with ChangeNotifier {
         data: '?order_id=$id');
     notifyListeners();
   }
-void readyOrder(int id){
 
-  RestController().sendGetRequest(
-        onComplete: ({required String data, required int statusCode}) {
-          notifyListeners();
-        },
-        onError: ({required int statusCode}) {
-          notifyListeners();
-        },
-        controller: 'ready_order',
-        data: '?order_id=$id');
-    notifyListeners();
-}
+
+
 
   
 

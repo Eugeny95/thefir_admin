@@ -126,7 +126,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
         appBar: AppBar(
            iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white, 
-          title: Text('Оформление заказа',
+          title: Text('Детали заказа',
           style: TextStyle(color: Colors.black))),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -181,6 +181,7 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                                       onPressed: () {
                                         orderController
                                             .acceptOrder(_orderObject!.ids);
+                                            _orderObject!.isAccepted = true;
                                         orderController.notifyListeners();
                                       },
                                       child: Text('Принять',
@@ -191,7 +192,9 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                                   SizedBox(
                                 height: 10,
                               ),
-                             ElevatedButton(
+                             !_orderObject!.isReady
+                              
+                                  ? ElevatedButton(
                                        style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                  borderRadius: BorderRadius.circular(12), // <-- Radius
@@ -202,12 +205,14 @@ class OrderDetailsPageState extends State<OrderDetailsPage> {
                                       onPressed: () {
                                          orderController
                                              .readyOrder(_orderObject!.ids);
+                                             _orderObject!.isReady=true;
+                                             orderController.getActiveOrders();
                                          orderController.notifyListeners();
                                       },
                                       child: Text('Сообщить о готовности',
                                       style: TextStyle(
                                     color:  Color.fromARGB(255, 26, 26, 26),
-                                    fontSize: 15))),
+                                    fontSize: 15))):Row(),
                                     SizedBox(
                                 height: 10,
                               ),
